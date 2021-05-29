@@ -6,7 +6,7 @@ Title: "Dummy List example"
 Usage: #inline
 * status = #current
 * mode = #working
-//* subject = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
+* subject = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
 * entry[+].item = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001)
 * entry[+].item = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
 
