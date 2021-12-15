@@ -57,7 +57,8 @@ Usage: #inline
 Profile: DocumentReferenceX
 Parent: DocumentReference
 * status = #current
-
+* author ^type.aggregation = #contained
+ 
 Instance: aaaaaaaa-bbbb-cccc-dddd-e00000000001
 InstanceOf: DocumentReferenceX
 Title: "Dummy DocumentReference example"
