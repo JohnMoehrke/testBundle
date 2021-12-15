@@ -2,9 +2,9 @@
 # │  The properties below are used to create the ImplementationGuide resource. For a list of       │
 # │  supported properties, see: https://fshschool.org/docs/sushi/configuration/                    │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: fhir.example
+id: johnmoehrke.testbundle.example
 canonical: http://example.org
-name: testBundle
+name: JohnMoehrkeTestBundle
 status: draft
 version: 0.1.0
 fhirVersion: 4.0.1

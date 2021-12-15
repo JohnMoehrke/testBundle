@@ -1,6 +1,8 @@
 // equivalent to MHD Provide Document Bundle transaction
-Profile:        ProvideTestBundle
+Profile:        BundleX
 Parent:         Bundle
+Title: "Bundle X"
+Description: "Bundle with some profiling"
 * type = #transaction
 * entry ^slicing.discriminator.type = #profile
 * entry ^slicing.discriminator.path = "resource"
@@ -40,11 +42,14 @@ Parent:         Bundle
 
 Profile: ListX
 Parent: List
+Title: "List X profile"
+Description: "List with some profiling"
 * status = #current
 
 Instance: aaaaaaaa-bbbb-cccc-dddd-e00000000002
 InstanceOf: ListX
-Title: "Dummy List example"
+Title: "List example of ListX"
+Description: "List example of ListX with some content - inline"
 Usage: #inline
 * text.status = #extensions
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"> hello world </div>"
@@ -54,15 +59,43 @@ Usage: #inline
 * entry[+].item = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001)
 * entry[+].item = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
 
+Instance: ex-ListX
+InstanceOf: ListX
+Title: "List example of ListX"
+Description: "List example of ListX with some data"
+Usage: #example
+* text.status = #extensions
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"> hello world </div>"
+* status = #current
+* mode = #working
+* subject = Reference(Patient/ex-Patient)
+* entry[+].item = Reference(DocumentReference/ex-DocumentReferenceX)
+
+
 Profile: DocumentReferenceX
 Parent: DocumentReference
+Title: "DocumentReference X profile"
+Description: "DocumentReference example of DocumentReferenceX - inline"
 * status = #current
-* author ^type.aggregation = #contained
+//* author ^type.aggregation = #contained
  
 Instance: aaaaaaaa-bbbb-cccc-dddd-e00000000001
 InstanceOf: DocumentReferenceX
-Title: "Dummy DocumentReference example"
+Title: "DocumentReference example of DocumentReferenceX"
+Description: "DocumentReference example with some content - inline"
 Usage: #inline
+* status = #current
+* subject = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
+* content.attachment.title = "Hello World"
+* content.attachment.contentType = #text/plain
+* contained[0] = in-practitioner
+* author = Reference(in-practitioner)
+
+Instance: ex-DocumentReferenceX
+InstanceOf: DocumentReferenceX
+Title: "DocumentReference example of DocumentReferenceX"
+Description: "DocumentReference example with some content"
+Usage: #example
 * status = #current
 * subject = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
 * content.attachment.title = "Hello World"
@@ -73,22 +106,61 @@ Usage: #inline
 
 Instance: in-practitioner
 InstanceOf: Practitioner
-Title: "Intended Practitioner Recipient example"
-Description: "a Practitioner identified only as an email address, carried as a contained resoruce."
+Title: "Practitioner example"
+Description: "Practitioner example with some content - inline"
 Usage: #inline
 * telecom.system = #email
 * telecom.value = "JohnMoehrke@gmail.com"
 
+Instance: ex-practitioner
+InstanceOf: Practitioner
+Title: "Practitioner example"
+Description: "Practitioner example with some content"
+Usage: #example
+* telecom.system = #email
+* telecom.value = "JohnMoehrke@gmail.com"
+
+
 Instance: aaaaaaaa-bbbb-cccc-dddd-e00000000003
 InstanceOf: Patient
-Title: "Bundled Dummy Patient"
+Title: "Patient example"
+Description: "Patient with some content - inline"
 Usage: #inline
 * name[+].family = "Schmidt"
 * name[=].given = "Dumb"
 
-Instance:   ex-dummyProvideDocumentBundle
+Instance: ex-Patient
+InstanceOf: Patient
+Title: "Patient example"
+Description: "Patient with some content"
+Usage: #example
+* name[+].family = "Schmidt"
+* name[=].given = "Dumb"
+
+Instance:   ex-BundleX
+InstanceOf: BundleX
+Title:      "ex-dummy Bundle of profile BundleX"
+Description: "Bundle with some content"
+Usage: #example
+* type = #transaction
+* timestamp = 2020-11-24T23:50:50-05:00
+* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000003
+* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003"
+* entry[=].request.url = "Patient"
+* entry[=].request.method = #POST
+* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000001
+* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001"
+* entry[=].request.url = "List"
+* entry[=].request.method = #POST
+* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000002
+* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000002"
+* entry[=].request.url = "DocumentReference"
+* entry[=].request.method = #POST
+
+Instance:   ex-Bundle
 InstanceOf: Bundle
-Title:      "Dummy Provide Document Bundle"
+Title:      "ex-dummy unprofiled Bundle"
+Description: "Bundle with some content"
 Usage: #example
 * type = #transaction
 * timestamp = 2020-11-24T23:50:50-05:00
