@@ -148,18 +148,18 @@ Description: "Bundle with some content"
 Usage: #example
 * type = #transaction
 * timestamp = 2020-11-24T23:50:50-05:00
-* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000003
-* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003"
-* entry[=].request.url = "Patient"
-* entry[=].request.method = #POST
-* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000001
-* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001"
-* entry[=].request.url = "List"
-* entry[=].request.method = #POST
-* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000002
-* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000002"
-* entry[=].request.url = "DocumentReference"
-* entry[=].request.method = #POST
+* entry[Patient].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000003
+* entry[Patient].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003"
+* entry[Patient].request.url = "Patient"
+* entry[Patient].request.method = #POST
+* entry[List].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000002
+* entry[List].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000002"
+* entry[List].request.url = "List"
+* entry[List].request.method = #POST
+* entry[DocumentRefs].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000001
+* entry[DocumentRefs].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001"
+* entry[DocumentRefs].request.url = "DocumentReference"
+* entry[DocumentRefs].request.method = #POST
 
 Instance:   ex-Bundle
 InstanceOf: Bundle

@@ -38,4 +38,6 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  Bundle: exampleBundle.html
   Artifacts: artifacts.html
+  Download: download.html
