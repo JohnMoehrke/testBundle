@@ -84,10 +84,14 @@ InstanceOf: DocumentReferenceX
 Title: "DocumentReference example of DocumentReferenceX"
 Description: "DocumentReference example with some content - inline"
 Usage: #inline
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#ETHUD
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
 * status = #current
 * subject = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
 * content.attachment.title = "Hello World"
 * content.attachment.contentType = #text/plain
+* securityLabel[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#ETHUD
+* securityLabel[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
 * contained[0] = in-practitioner
 * author = Reference(in-practitioner)
 
@@ -163,6 +167,8 @@ Title:      "ex-dummy unprofiled Bundle"
 Description: "Bundle with some content"
 Usage: #example
 * type = #transaction
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#DELAU
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
 * timestamp = 2020-11-24T23:50:50-05:00
 * entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000003
 * entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003"
