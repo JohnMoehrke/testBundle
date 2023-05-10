@@ -146,6 +146,8 @@ InstanceOf: BundleX
 Title:      "ex-dummy Bundle of profile BundleX"
 Description: "Bundle with some content"
 Usage: #example
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#DELAU
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
 * type = #transaction
 * timestamp = 2020-11-24T23:50:50-05:00
 * entry[Patient].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000003
@@ -174,12 +176,12 @@ Usage: #example
 * entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003"
 * entry[=].request.url = "Patient"
 * entry[=].request.method = #POST
-* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000001
-* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001"
-* entry[=].request.url = "List"
-* entry[=].request.method = #POST
 * entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000002
 * entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000002"
+* entry[=].request.url = "List"
+* entry[=].request.method = #POST
+* entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000001
+* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001"
 * entry[=].request.url = "DocumentReference"
 * entry[=].request.method = #POST
 

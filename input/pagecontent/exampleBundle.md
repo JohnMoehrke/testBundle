@@ -1,4 +1,4 @@
-Here is a bundle
+The Bundle examples include security tagging. Below is narrative extract. To see the whole Bundle look to the [Example Bundle](Bundle-ex-BundleX.html).
 
 ```json
 {
