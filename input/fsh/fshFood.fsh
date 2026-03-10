@@ -165,8 +165,8 @@ Usage: #example
 
 Instance:   ex-Bundle
 InstanceOf: Bundle
-Title:      "ex-dummy unprofiled Bundle"
-Description: "Bundle with some content"
+Title:      "ex-dummy unprofiled transaction Bundle"
+Description: "Bundle with some content. As a transaction Bundle the POST (create) resources are expected to be uuid references and the fullUrl is expected to be a uuid reference. The uuid gets replaced with the ultimate id once it is imported into the target and thus all uses of the uuid and the urn:uuid: are replaced."
 Usage: #example
 * type = #transaction
 * meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#DELAU
