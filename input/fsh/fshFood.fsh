@@ -10,10 +10,10 @@ Description: "Bundle with some profiling"
 * entry ^slicing.description = "Slicing based on the profile conformance of the entry"
 * entry and entry.resource MS
 * entry contains 
-    List 1..1 and
-    DocumentRefs 0..* and
-    Documents 0..* and
-    Patient 0..1
+    List 1..1 MS and
+    DocumentRefs 0..* MS and
+    Documents 0..* MS and
+    Patient 0..1 MS
 * entry[List].resource only ListX
 * entry[List] ^short = "the List"
 * entry[List] ^definition = "The List defines who submitted it, why they submitted it, when they submitted, what is in it, and where it is destine."
@@ -101,7 +101,7 @@ Title: "DocumentReference example of DocumentReferenceX"
 Description: "DocumentReference example with some content"
 Usage: #example
 * status = #current
-* subject = Reference(urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003)
+* subject = Reference(ex-Patient)
 * content.attachment.title = "Hello World"
 * content.attachment.contentType = #text/plain
 * contained[0] = in-practitioner
@@ -181,6 +181,46 @@ Usage: #example
 * entry[=].request.url = "List"
 * entry[=].request.method = #POST
 * entry[+].resource =          aaaaaaaa-bbbb-cccc-dddd-e00000000001
+* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001"
+* entry[=].request.url = "DocumentReference"
+* entry[=].request.method = #POST
+
+Instance:   ex-Bundle-Collection
+InstanceOf: Bundle
+Title:      "ex-dummy unprofiled Bundle of type collection"
+Description: "Bundle with some content as a collection type bundle. A collection bundle can use #example or #inline because it does not require uuid."
+Usage: #example
+* type = #collection
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#DELAU
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
+* timestamp = 2020-11-24T23:50:50-05:00
+* entry[+].resource = ex-Patient
+* entry[=].fullUrl = "http://example.org/fsh/Patient/ex-Patient"
+* entry[+].resource = ex-ListX
+* entry[=].fullUrl = "http://example.org/fsh/List/ex-ListX"
+* entry[+].resource = ex-DocumentReferenceX
+* entry[=].fullUrl = "http://example.org/fsh/DocumentReference/ex-DocumentReferenceX"
+
+Instance:   ex-Bundle-mixed
+InstanceOf: Bundle
+Title:      "ex-dummy unprofiled Bundle"
+Description: """
+Bundle with some content. This throws warnings. Given that the fullurl is considered more important than the id, this should work.
+"""
+Usage: #example
+* type = #transaction
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#DELAU
+* meta.security[+] = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
+* timestamp = 2020-11-24T23:50:50-05:00
+* entry[+].resource = ex-Patient
+* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000003"
+* entry[=].request.url = "Patient"
+* entry[=].request.method = #POST
+* entry[+].resource = ex-ListX
+* entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000002"
+* entry[=].request.url = "List"
+* entry[=].request.method = #POST
+* entry[+].resource = ex-DocumentReferenceX
 * entry[=].fullUrl = "urn:uuid:aaaaaaaa-bbbb-cccc-dddd-e00000000001"
 * entry[=].request.url = "DocumentReference"
 * entry[=].request.method = #POST
