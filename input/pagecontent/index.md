@@ -11,6 +11,7 @@ Would be nice if Sushi could handle the uuid generation and referencing for us, 
 
 - https://github.com/FHIR/sushi/issues/1079
 - https://github.com/FHIR/sushi/issues/783
+- https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/References.20error.20in.20QA.20report.20when.20profiling.20IPS.20bundle
 
 But that would mean that sushi would need to not replace id values that should not be replaced.
 
