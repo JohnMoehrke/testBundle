@@ -225,3 +225,39 @@ Usage: #example
 * entry[=].request.url = "DocumentReference"
 * entry[=].request.method = #POST
 
+// CapabilityStatement for a Server that supports CRUD operations on the Resources in this IG, plus support in general for search on _id, and _count
+Instance: ex-CapabilityStatement
+InstanceOf: CapabilityStatement
+Title: "CapabilityStatement for CRUD operations on IG Resources"
+Description: "This CapabilityStatement describes a server that supports CRUD operations on the resources in this IG, as well as search on _id and _count."
+Usage: #definition
+* description = "This CapabilityStatement describes a server that supports CRUD operations on the resources in this IG, as well as search on _id and _count."
+* id = "ex-CapabilityStatement"
+* name = "Ex_CapabilityStatement"
+* status = #active
+* date = "2024-06-05"
+* publisher = "Example Publisher"
+* purpose = "Describe the capabilities of a server supporting CRUD operations on IG resources and search on _id and _count."
+* kind = #requirements
+* fhirVersion         = #4.0.1
+* format[+]           = #xml
+* format[+]           = #json
+* rest[+].mode = #server
+* rest[=].resource[+].type = #Patient
+* rest[=].resource[=].interaction[+].code = #read
+* rest[=].resource[=].interaction[+].code = #vread
+* rest[=].resource[=].interaction[+].code = #update
+* rest[=].resource[=].interaction[+].code = #delete
+* rest[=].resource[=].interaction[+].code = #create
+* rest[=].resource[=].searchParam[+].name = "address"
+* rest[=].resource[=].searchParam[=].type = #string
+* rest[=].resource[=].searchParam[=].documentation = "Search by address"
+* rest[=].resource[=].searchParam[+].name = "family"
+* rest[=].resource[=].searchParam[=].type = #string
+* rest[=].resource[=].searchParam[=].documentation = "Search by family name"
+* rest[=].searchParam[+].name = "_id"
+* rest[=].searchParam[=].type = #token
+* rest[=].searchParam[=].documentation = "Search by resource ID"
+* rest[=].searchParam[+].name = "_count"
+* rest[=].searchParam[=].type = #number
+* rest[=].searchParam[=].documentation = "Search with a count limit"

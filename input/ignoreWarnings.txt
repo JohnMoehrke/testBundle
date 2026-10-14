@@ -5,4 +5,7 @@
 # See https://github.com/FHIR/sample-ig/blob/master/input/ignoreWarnings.txt for examples
 
 # inherited from core
-The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
+The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet%
+
+# This is MY IG so it is using my OID root
+The assigned auto-oid-root value '1.3.6.1.4.1.66281.19' is not registered in https://github.com/FHIR/ig-registry/blob/master/oid-assignments.json so isn't known to be valid
