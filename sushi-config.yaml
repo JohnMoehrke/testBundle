@@ -5,6 +5,7 @@
 id: johnmoehrke.testbundle.example
 canonical: http://johnmoehrke.github.io/testbundle
 name: JohnMoehrkeTestBundle
+title: John Moehrke Test Bundle & More
 status: draft
 version: 0.1.0
 fhirVersion: 4.0.1
